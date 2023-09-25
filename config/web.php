@@ -53,12 +53,17 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 // 'category/<id:\d+>'=>'category/view',
-                'category/<alias:[a-zA-Z0-9-]+>'=>'main/category/view',
+                'category/<name:[a-zA-Z0-9-]+>'=>'main/category/view',
                 'page/<page:\d+>'=>'main/index',
                 '/'=>'main/index'
             ],
         ],
         
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\module\admin\Module',
+        ],
     ],
     'params' => $params,
 ];

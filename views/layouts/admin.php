@@ -16,7 +16,6 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
-    <base href="/">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
@@ -39,13 +38,9 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/main/index']],
-            ['label' => 'About', 'url' => ['/main/about']],
-            ['label' => 'Contact', 'url' => ['/main/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/main/login']]
-            ) : (
-                '<li class="nav-item"><a class="nav-link" href="/admin/default/index">Admin</a></li>'
-                . '<li>'
+            ['label' => 'Category', 'url' => ['/admin/category/index']],
+            ['label' => 'Gallery', 'url' => ['/admin/gallery/index']],
+                '<li>'
                 . Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
@@ -53,8 +48,6 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-                // . ['label' => 'About', 'url' => ['/admin/gallery/index']]
-                ),
         ],
     ]);
     NavBar::end();
@@ -69,12 +62,6 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
-    <div class="modalImage" id="modal">
-    <div class="modalImageContant">
-        <!-- <button class="maodalImage__close">Close</button>   -->
-        <img src="" alt="Изображение в окне" />
-    </div>
-</div>
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
