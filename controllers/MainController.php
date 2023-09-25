@@ -7,6 +7,7 @@ use app\models\Gallery;
 use app\models\Category;
 use yii\web\Controller;
 use yii\data\Pagination;
+use app\models\LoginForm;
 
 class MainController extends Controller
 {

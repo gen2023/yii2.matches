@@ -8,6 +8,7 @@ use app\models\GallerySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * GalleryController implements the CRUD actions for Gallery model.
@@ -78,8 +79,11 @@ class GalleryController extends Controller
             $model->loadDefaultValues();
         }
 
+        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'name');
+
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 
@@ -93,16 +97,16 @@ class GalleryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelCategory = new Category();
-
-        // var_dump($modelCategory);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'name');
+
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 
@@ -134,5 +138,11 @@ class GalleryController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    protected function getCategory(){
+        
+        
+        // $categorys=$queryCategory->all();
+        return $categorys;
     }
 }
