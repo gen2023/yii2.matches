@@ -50,8 +50,6 @@ class MainController extends Controller
     $post = $request->post();
     $id_image=$post['id_image'];
     $action=$post['action'];
-    // $result=Gallery::getImageInfo($id_image);
-    // var_dump($result);
     $query = Gallery::find()->where(['id'=>$id_image]);
     $infoImage = $query->limit(1)->one();
     $newCount=0;
@@ -60,14 +58,11 @@ class MainController extends Controller
     }else{
       $newCount=$infoImage->likes-1;
     }
-    
-    
 
-    // return $this->redirect('index');
-  }
-  public function actionDizlike() {
-    die;
-    // return $this->redirect('index');
+    Gallery::updateAll(['likes'=>$newCount],['id'=>$id_image]);
+
+    return $newCount;
+
   }
 
       /**

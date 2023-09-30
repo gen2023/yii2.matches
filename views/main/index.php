@@ -36,12 +36,12 @@ $this->title = 'Главная - '. Yii::$app->name;
         <div class="row">
           <section class="lastGallery gallery">
             <?php foreach ($lasts as $item) : ?>
-              <div class="item">
+              <div class="item" data-imgage_id="<?=$item->id;?>">
                 <?= Html::img("@web{$item->image}",['class'=>'image']) ?>
                 <div class="infoImage">
                   <div class="info">
-                    <div class="view">Просмотров: <?= $item->views ?></div>
-                    <div class="like">Понравилось: <?= $item->likes ?></div>
+                    <div class="view">Просмотров: <span class="number"><?= $item->views ?></span></div>
+                    <div class="like">Понравилось: <span class="number"><?= $item->likes ?></span></div>
                   </div>
                   <div class="navigation">
                   <?= Html::img('@web/images/icon/like1.svg', ['alt' => 'Нравится','class'=>'likeImg','data-img'=>$item->id]) ?>
@@ -57,12 +57,12 @@ $this->title = 'Главная - '. Yii::$app->name;
         <div class="row">
           <section class="popularGallery gallery">
             <?php foreach ($populars as $item) : ?>
-              <div class="item">
+              <div class="item" data-imgage_id="<?=$item->id;?>">
                 <?= Html::img("@web{$item->image}",['class'=>'image']) ?>
                 <div class="infoImage">
                   <div class="info">
-                    <div class="view">Просмотров: <?= $item->views ?></div>
-                    <div class="like">Понравилось: <?= $item->likes ?></div>
+                    <div class="view">Просмотров: <span class="number"><?= $item->views ?></span></div>
+                    <div class="like">Понравилось: <span class="number"><?= $item->likes ?></span></div>
                   </div>
                   <div class="navigation">
                     <?= Html::img('@web/images/icon/like1.svg', ['alt' => 'Нравится','class'=>'likeImg','data-img'=>$item->id]) ?>
@@ -97,20 +97,18 @@ $('.dizlikeImg').on('click',function(e){
 })
 
 function editLike(action,id_image){
-  
-  
-      console.log(action);
       $.ajax({
          url: '/main/edit_like',
           type: 'post',
           data: {action,id_image},
-          success: function (data) {
-            console.log('good');
+          success: function (likes) {
+            let info=$('[data-imgage_id='+id_image+'] .like .number');
+            info.each((item)=>{
+              info[item].textContent=likes});            
           },
           error: function (jqXHR, exception) {
             console.log('Youps');
           }
-
     });
 
 }
