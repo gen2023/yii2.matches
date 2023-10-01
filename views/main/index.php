@@ -80,38 +80,7 @@ $this->title = 'Главная - '. Yii::$app->name;
 
 
 $script = <<< JS
-$('.likeImg').on('click',function(e){
-  e.preventDefault();
-  let selectImg=$(this).attr('data-img');
-  $('.likeImg[data-img='+ selectImg +']').hide();
-  $('.dizlikeImg[data-img='+ selectImg +']').show();
-  editLike('like',selectImg);
-})
 
-$('.dizlikeImg').on('click',function(e){
-  e.preventDefault();
-  let selectImg=$(this).attr('data-img');
-  $('.dizlikeImg[data-img='+ selectImg +']').hide();
-  $('.likeImg[data-img='+ selectImg +']').show();
-  editLike('dizlike',selectImg);
-})
-
-function editLike(action,id_image){
-      $.ajax({
-         url: '/main/edit_like',
-          type: 'post',
-          data: {action,id_image},
-          success: function (likes) {
-            let info=$('[data-imgage_id='+id_image+'] .like .number');
-            info.each((item)=>{
-              info[item].textContent=likes});            
-          },
-          error: function (jqXHR, exception) {
-            console.log('Youps');
-          }
-    });
-
-}
 JS;
 
 

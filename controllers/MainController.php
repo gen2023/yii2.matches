@@ -28,11 +28,11 @@ class MainController extends Controller
 
   public function actionCategory($name){
 
-    $category=Category::find()->where(['alias' => $name])->limit(1)->one();
+    $category=Category::find()->where(['alias' => $name])->limit(9)->one();
     
     $query = Gallery::find()->where(['category_id' => $category->id]);
     $countQuery = clone $query;
-    $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>1,'forcePageParam'=>false,'pageSizeParam'=>false]);
+    $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>9,'forcePageParam'=>false,'pageSizeParam'=>false]);
     $images = $query->offset($pages->offset)
         ->limit($pages->limit)
         ->all();
@@ -60,6 +60,21 @@ class MainController extends Controller
     }
 
     Gallery::updateAll(['likes'=>$newCount],['id'=>$id_image]);
+
+    return $newCount;
+
+  }
+
+  public function actionEdit_view() {
+    $request = Yii::$app->request;
+    $post = $request->post();
+    $id_image=$post['id_image'];
+    $query = Gallery::find()->where(['id'=>$id_image]);
+    $infoImage = $query->limit(1)->one();
+    $newCount=0;
+    $newCount=$infoImage->views+1;
+
+    Gallery::updateAll(['views'=>$newCount],['id'=>$id_image]);
 
     return $newCount;
 

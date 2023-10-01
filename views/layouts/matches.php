@@ -71,7 +71,6 @@ AppAsset::register($this);
     </div>
     <div class="modalImage" id="modal">
     <div class="modalImageContant">
-        <!-- <button class="maodalImage__close">Close</button>   -->
         <img src="" alt="Изображение в окне" />
     </div>
 </div>
