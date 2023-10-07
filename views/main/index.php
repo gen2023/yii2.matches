@@ -18,7 +18,7 @@ $this->title = 'Главная - '. Yii::$app->name;
         <?php foreach ($categorys as $item) : ?>
           <li>
             <div class="categoryTitle">
-              <a href="<?= Url::to(['main/category','name'=>$item->alias])?>"><?= $item->name; ?></a>
+              <a href="<?= Url::to(['main/category','name'=>$item->alias])?>"><?= $item->name; ?><span>(<?= $countInCategory[$item->id] ?>)</span></a>
             </div>
           </li>
         <?php endforeach; ?>

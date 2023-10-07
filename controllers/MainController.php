@@ -19,10 +19,17 @@ class MainController extends Controller
     $queryCategory=Category::find();
     $categorys=$queryCategory->all();
 
+    $countInCategory=array();
+    foreach ($categorys as $item){
+      $query = Gallery::find()->where(['category_id' => $item->id]);
+      $countInCategory[$item->id]=$query->count();
+    }
+
     return $this->render('index',[
       'populars'=>$populars,
       'lasts'=>$lasts,
       'categorys'=>$categorys,
+      'countInCategory'=>$countInCategory,
     ]);
   }
 
