@@ -13,8 +13,8 @@ class MainController extends Controller
 {
   public function actionIndex(){
     $query=Gallery::find()->with('category');
-    $populars=$query->limit(5)->orderBy(['likes' => SORT_DESC])->all();
-    $lasts=$query->limit(5)->orderBy(['id' => SORT_DESC])->all();
+    $populars=$query->limit(10)->orderBy(['likes' => SORT_DESC])->all();
+    $lasts=$query->limit(10)->orderBy(['id' => SORT_DESC])->all();
 
     $queryCategory=Category::find();
     $categorys=$queryCategory->all();

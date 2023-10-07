@@ -34,6 +34,7 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
+        'innerContainerOptions'=>['class'=>'navTop']
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
@@ -62,7 +63,7 @@ AppAsset::register($this);
 </header>
 
 <main role="main" class="flex-shrink-0">
-    <div class="container">
+    <div class="myContainer">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -79,7 +80,7 @@ AppAsset::register($this);
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
+    <div class="myContainer">
         <p class="float-left">&copy; My Company <?= date('Y') ?></p>
         <p class="float-right"><?= Yii::powered() ?></p>
     </div>

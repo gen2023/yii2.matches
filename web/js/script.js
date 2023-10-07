@@ -73,7 +73,7 @@ jQuery(function($) {
     var swiper1 = new Swiper(".swiperPopylar", {
         loop: true,
         slidesPerView: 3,
-        spaceBetween: 20,
+        spaceBetween: 10,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
