@@ -10,54 +10,61 @@ use yii\web\View;
 $this->title = 'Главная - '. Yii::$app->name;
 
 ?>
-<div class="site-index">
-
+<div class="col-3">
+  <div class="column_left">
+    <section class="categoryList">
+      <h2>категории</h2>
+      <ul>
+        <?php foreach ($categorys as $item) : ?>
+          <li>
+            <div class="categoryTitle">
+              <a href="<?= Url::to(['main/category','name'=>$item->alias])?>"><?= $item->name; ?></a>
+            </div>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    </section>
+  </div>
+</div>
+<div class="col-9">
+  <div class="site-index">
     <div class="jumbotron text-center bg-transparent">
         <h1 class="display-4">Тут собрана моя Колекция!</h1>
         <p class="lead">Каждому человеку нужно какое-нибудь хобби — якобы с целью «выйти из стресса», — но ты-то прекрасно понимаешь, что на самом деле люди попросту пытаются выжить и не сойти с ума.</p>
     </div>
     <div class="body-content">
-      <div class="row">
-        <section class="categoryList">
-          <h2>список категорий</h2>
-          <ul>
-            <?php foreach ($categorys as $item) : ?>
-              <li>
-                <div class="categoryTitle">
-                  <a href="<?= Url::to(['main/category','name'=>$item->alias])?>"><?= $item->name; ?></a>
-                </div>
-              </li>
-            <?php endforeach;
-            ?>
-          </ul>
-        </section>
-      </div>
       <h2>Последние загруженные</h2>
         <div class="row">
-          <section class="lastGallery gallery">
-            <?php foreach ($lasts as $item) : ?>
-              <div class="item" data-imgage_id="<?=$item->id;?>">
-                <?= Html::img("@web{$item->image}",['class'=>'image']) ?>
-                <div class="infoImage">
-                  <div class="info">
-                    <div class="view">Просмотров: <span class="number"><?= $item->views ?></span></div>
-                    <div class="like">Понравилось: <span class="number"><?= $item->likes ?></span></div>
-                  </div>
-                  <div class="navigation">
-                  <?= Html::img('@web/images/icon/like1.svg', ['alt' => 'Нравится','class'=>'likeImg','data-img'=>$item->id]) ?>
-                    <?= Html::img('@web/images/icon/like2.svg', ['alt' => 'Нравится','class'=>'dizlikeImg','data-img'=>$item->id]) ?>
+          <section class="lastGallery gallery col-12">
+            <div class="swiper swiperLast">
+            <div class="swiper-wrapper">
+              <?php foreach ($lasts as $item) : ?>
+                <div class="swiper-slide" data-imgage_id="<?=$item->id;?>">
+                  <?= Html::img("@web{$item->image}",['class'=>'image']) ?>
+                  <div class="infoImage">
+                    <div class="info">
+                      <div class="view">Просмотров: <span class="number"><?= $item->views ?></span></div>
+                      <div class="like">Понравилось: <span class="number"><?= $item->likes ?></span></div>
+                    </div>
+                    <div class="navigation">
+                    <?= Html::img('@web/images/icon/like1.svg', ['alt' => 'Нравится','class'=>'likeImg','data-img'=>$item->id]) ?>
+                      <?= Html::img('@web/images/icon/like2.svg', ['alt' => 'Нравится','class'=>'dizlikeImg','data-img'=>$item->id]) ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <?php endforeach;?>
+              <?php endforeach;?>
+            </div>
+            </div>
           </section>
         </div>
     </div>
       <h2>Популярные</h2>
         <div class="row">
-          <section class="popularGallery gallery">
+          <section class="popularGallery gallery col-12">
+          <div class="swiper swiperPopylar">
+            <div class="swiper-wrapper">
             <?php foreach ($populars as $item) : ?>
-              <div class="item" data-imgage_id="<?=$item->id;?>">
+              <div class="swiper-slide" data-imgage_id="<?=$item->id;?>">
                 <?= Html::img("@web{$item->image}",['class'=>'image']) ?>
                 <div class="infoImage">
                   <div class="info">
@@ -74,7 +81,9 @@ $this->title = 'Главная - '. Yii::$app->name;
           </section>
         </div>
     </div>
+  </div>
 </div>
+
 <?php
 
 

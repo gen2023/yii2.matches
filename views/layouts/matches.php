@@ -67,7 +67,9 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="row">
+            <?= $content ?>
+        </div>
     </div>
     <div class="modalImage" id="modal">
     <div class="modalImageContant">

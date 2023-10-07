@@ -22,9 +22,11 @@ class AppAsset extends AssetBundle
     public $css = [
         // 'css/reset.css',
         'css/site.css',
+        'css/swiper-bundle.min.css',
     ];
     public $js = [
         'js/script.js',
+        'js/swiper-bundle.min.js',
     ];
     public $images = [
         '/images/',
