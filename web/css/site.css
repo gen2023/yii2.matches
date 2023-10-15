@@ -166,6 +166,10 @@ a.desc:after {
     padding: 5px;
     width: 100%;
 }
+.infoCategoryAdmin table,
+.infoCategoryAdmin td{border: 1px solid black;}
+.infoCategoryAdmin table .count{text-align: center;}
+.infoCategoryAdmin td{padding: 10px;}
 @media screen and (max-width: 991px) {}
 @media screen and (max-width: 991px) {
     h2{text-align: center;}

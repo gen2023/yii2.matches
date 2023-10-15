@@ -1,12 +1,35 @@
-<div class="admin-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
+<div class="myContainer">
+    
+    <div class="infoCategoryAdmin">
+        <div class="row">
+        <div class="col-2">
+            <table>
+                <?php foreach ($categorys as $item) : ?>
+                    <tr>
+                        <td><?= $item->name; ?></td>
+                        <td class="count"><?= $countInCategory[$item->id] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+        <div class="col-2">
+            <table>
+                <tr>
+                    <td>Всего изображений</td>
+                    <td><?= $total; ?></td>
+                </tr>
+                <tr>
+                    <td>Всего лайков</td>
+                    <td><?= $total_Like; ?></td>
+                </tr>
+                <tr>
+                    <td>Всего просмотров</td>
+                    <td><?= $total_View; ?></td>
+                </tr>
+
+            </table>
+        </div>
+        </div>
+    </div>
+
 </div>
