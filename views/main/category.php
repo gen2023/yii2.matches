@@ -9,7 +9,7 @@ use yii\widgets\LinkPager;
 $this->title = $category->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page_category">
+<div class="col-12 page_category">
   <h1><?= Html::encode($this->title) ?></h1>
   <section class="listImage gallery">
   <?php foreach ($images as $item) : ?>

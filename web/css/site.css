@@ -1,22 +1,25 @@
 .myContainer {
     max-width: 1400px;
     margin: 0 auto;
-    }
-main > .myContainer {
+}
+
+main>.myContainer {
     padding: 70px 15px 20px;
 }
-header .navTop{
+
+header .navTop {
     display: flex;
     width: 1400px;
     margin: 0 auto;
 }
+
 .footer {
     background-color: #f5f5f5;
     font-size: .9em;
     height: 60px;
 }
 
-.footer > .myContainer {
+.footer>.myContainer {
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -26,8 +29,11 @@ header .navTop{
     font-style: italic;
 }
 
+
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
+
+a.asc:after,
+a.desc:after {
     content: '';
     left: 3px;
     display: inline-block;
@@ -66,30 +72,33 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+
 /* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
+
+.nav li>form>button.logout {
     padding-top: 7px;
     color: rgba(255, 255, 255, 0.5);
 }
 
 @media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
+    .nav li>form>button.logout {
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 0;
     }
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
+.nav>li>form>button.logout:focus,
+.nav>li>form>button.logout:hover {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.75);
 }
 
-.nav > li > form > button.logout:focus {
+.nav>li>form>button.logout:focus {
     outline: none;
 }
+
 .gallery {
     display: flex;
     gap: 20px;
@@ -97,14 +106,20 @@ a.desc:after {
     gap: 5px;
     flex-wrap: wrap;
 }
-.gallery .item{    
+
+.gallery .item {
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, 0.05);
     width: 281px;
     text-align: center;
 }
-.gallery .swiper-slide{    
+
+.page_category .gallery .item {
+    width: 270px;
+}
+
+.gallery .swiper-slide {
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, 0.05);
@@ -115,10 +130,30 @@ a.desc:after {
     align-items: center;
     flex-direction: column;
 }
-.gallery .swiper-slide img{max-height: 174px;width: auto;margin: 0 auto;padding: 5px;}
-.gallery .item img{max-height: 187px;width: auto;margin: 0 auto;padding: 5px;}
-.dizlikeImg{display: none;cursor: pointer;}
-.likeImg{cursor: pointer;}
+
+.gallery .swiper-slide img {
+    max-height: 174px;
+    width: auto;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.gallery .item img {
+    max-height: 187px;
+    width: auto;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.dizlikeImg {
+    display: none;
+    cursor: pointer;
+}
+
+.likeImg {
+    cursor: pointer;
+}
+
 .infoImage {
     display: flex;
     align-items: center;
@@ -139,7 +174,8 @@ a.desc:after {
     cursor: pointer;
     z-index: 1;
 }
-.modalImageContant{
+
+.modalImageContant {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -149,15 +185,27 @@ a.desc:after {
     cursor: default;
     padding: 40px 10px;
 }
-.row{margin-bottom: 50px;}
-.gallery .swiper{padding: 20px; }
-.column_left .categoryList ul{padding: 0;margin: 0;}
-.column_left .categoryList li{
+
+.row {
+    margin-bottom: 50px;
+}
+
+.gallery .swiper {
+    padding: 20px;
+}
+
+.column_left .categoryList ul {
+    padding: 0;
+    margin: 0;
+}
+
+.column_left .categoryList li {
     list-style: none;
     margin-bottom: 5px;
     width: 100%;
 }
-.column_left .categoryList li a{
+
+.column_left .categoryList li a {
     background: #FFF;
     box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -166,14 +214,36 @@ a.desc:after {
     padding: 5px;
     width: 100%;
 }
+
 .infoCategoryAdmin table,
-.infoCategoryAdmin td{border: 1px solid black;}
-.infoCategoryAdmin table .count{text-align: center;}
-.infoCategoryAdmin td{padding: 10px;}
+.infoCategoryAdmin td {
+    border: 1px solid black;
+}
+
+.infoCategoryAdmin table .count {
+    text-align: center;
+}
+
+.infoCategoryAdmin td {
+    padding: 10px;
+}
+
 @media screen and (max-width: 991px) {}
+
 @media screen and (max-width: 991px) {
-    h2{text-align: center;}
-    .column_left .categoryList ul{display: flex;flex-wrap: wrap;justify-content: center;gap:10px;}
-    .column_left .categoryList li{width: max-content;}
-    .column_left .categoryList li a span{margin-left: 10px;}
+    h2 {
+        text-align: center;
+    }
+    .column_left .categoryList ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .column_left .categoryList li {
+        width: max-content;
+    }
+    .column_left .categoryList li a span {
+        margin-left: 10px;
+    }
 }
