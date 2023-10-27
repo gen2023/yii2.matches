@@ -12,8 +12,9 @@ use app\models\LoginForm;
 class MainController extends Controller
 {
   public function actionIndex(){
-    $query=Gallery::find()->with('category');
-    $populars=$query->limit(10)->orderBy(['likes' => SORT_DESC])->all();
+    // $query=Gallery::find()->with('category');
+    $query=Gallery::find()->select('*, `likes` + `views` as `sum_popular`')->with('category');
+    $populars=$query->limit(10)->orderBy(['sum_popular' => SORT_DESC])->all();
     $lasts=$query->limit(10)->orderBy(['id' => SORT_DESC])->all();
 
     $queryCategory=Category::find();
