@@ -122,4 +122,18 @@ class MainController extends Controller
         return $this->goHome();
     }
 
+    public function actionCounter()
+    {
+      $query=Gallery::find();
+      $all=$query->all();
+      $rand=array_rand($all);
+      $id_image=$all[$rand]->id;
+      $newCountView=$all[$rand]->views+1;
+      $newCountLike=$all[$rand]->likes+1;
+
+      Gallery::updateAll(['likes'=>$newCountLike,'views'=>$newCountView],['id'=>$id_image]);
+
+      return $this->render('counter');
+    }
+
 }
