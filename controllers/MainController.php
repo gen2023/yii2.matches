@@ -128,12 +128,17 @@ class MainController extends Controller
       $all=$query->all();
       $rand=array_rand($all);
       $id_image=$all[$rand]->id;
-      $newCountView=$all[$rand]->views+1;
       $newCountLike=$all[$rand]->likes+1;
 
-      Gallery::updateAll(['likes'=>$newCountLike,'views'=>$newCountView],['id'=>$id_image]);
+      Gallery::updateAll(['likes'=>$newCountLike],['id'=>$id_image]);
 
-      return $this->render('counter');
+      $rand=array_rand($all);
+      $id_image=$all[$rand]->id;
+      $newCountView=$all[$rand]->views+1;
+
+      Gallery::updateAll(['views'=>$newCountView],['id'=>$id_image]);
+
+      // return $this->render('counter');
     }
 
 }
