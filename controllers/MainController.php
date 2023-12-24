@@ -26,6 +26,9 @@ class MainController extends Controller
 
     $rand=array_rand($slogans);
     $randomSlogan=$slogans[$rand]->test;
+    $viewsSlogan=$slogans[$rand]->views+1;
+
+    Slogan::updateAll(['views'=>$viewsSlogan],['id'=>$slogans[$rand]->id]);
 
     $countInCategory=array();
     foreach ($categorys as $item){
