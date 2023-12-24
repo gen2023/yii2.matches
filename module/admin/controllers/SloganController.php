@@ -77,6 +77,8 @@ class SloganController extends Controller
             $model->loadDefaultValues();
         }
 
+        $model->views=0;
+
         return $this->render('create', [
             'model' => $model,
         ]);
