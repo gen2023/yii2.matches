@@ -5,7 +5,7 @@ namespace app\controllers;
 use yii;
 use app\models\Gallery;
 use app\models\Category;
-use app\models\Slogan;
+use app\models\Slogan; 
 use yii\web\Controller;
 use yii\data\Pagination;
 use app\models\LoginForm;
@@ -25,7 +25,7 @@ class MainController extends Controller
     $slogans=$querySlogan->all();
 
     $rand=array_rand($slogans);
-    $randomSlogan=$slogans[$rand]->test;
+    $randomSlogan=$slogans[$rand]->text;
     $viewsSlogan=$slogans[$rand]->views+1;
 
     Slogan::updateAll(['views'=>$viewsSlogan],['id'=>$slogans[$rand]->id]);

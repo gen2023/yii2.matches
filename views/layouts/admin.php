@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/main/index']],
             ['label' => 'Category', 'url' => ['/admin/category/index']],
             ['label' => 'Gallery', 'url' => ['/admin/gallery/index']],
+            ['label' => 'Slogan', 'url' => ['/admin/slogan/index']],
                 '<li>'
                 . Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
@@ -67,7 +68,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="myContainer">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="float-left">&copy; <?= Yii::$app->name; ?> <?= date('Y') ?></p>
         <p class="float-right"><?= Yii::powered() ?></p>
     </div>
 </footer>

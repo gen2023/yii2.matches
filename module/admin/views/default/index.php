@@ -26,7 +26,16 @@
                     <td>Всего просмотров</td>
                     <td><?= $total_View; ?></td>
                 </tr>
-
+            </table>
+        </div>
+        <div class="col-6">
+            <table>
+                <?php foreach ($slogans as $item) : ?>
+                    <tr>
+                        <td><?= $item->text; ?></td>
+                        <td class="views"><?= $item->views; ?></td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
         </div>
         </div>

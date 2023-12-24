@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "slogan".
  *
  * @property int $id
- * @property string $test
+ * @property string $text
  * @property int $views
  */
 class Slogan extends \yii\db\ActiveRecord
@@ -27,8 +27,8 @@ class Slogan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['test', 'views'], 'required'],
-            [['test'], 'string'],
+            [['text', 'views'], 'required'],
+            [['text'], 'string'],
             [['views'], 'integer'],
         ];
     }
@@ -40,7 +40,7 @@ class Slogan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'test' => 'Test',
+            'text' => 'text',
             'views' => 'Views',
         ];
     }

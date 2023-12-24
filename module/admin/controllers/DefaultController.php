@@ -4,6 +4,7 @@ namespace app\module\admin\controllers;
 
 use app\models\Gallery;
 use app\models\Category;
+use app\models\Slogan;
 use yii\web\Controller;
 
 /**
@@ -35,13 +36,17 @@ class DefaultController extends Controller
           $query = Gallery::find()->where(['category_id' => $item->id]);
           $countInCategory[$item->id]=$query->count();
         }
+
+        $querySlogan=Slogan::find();
+        $slogans=$querySlogan->all();
     
         return $this->render('index',[
-            'total'=>$total,
-            'total_Like'=>$total_Like,
-            'total_View'=>$total_View,
-            'categorys'=>$categorys,
-            'countInCategory'=>$countInCategory,
+            'total'           => $total,
+            'total_Like'      => $total_Like,
+            'total_View'      => $total_View,
+            'categorys'       => $categorys,
+            'countInCategory' => $countInCategory,
+            'slogans'         => $slogans,
         ]);
       }
 }
