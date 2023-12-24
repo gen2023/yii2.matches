@@ -5,6 +5,7 @@ namespace app\controllers;
 use yii;
 use app\models\Gallery;
 use app\models\Category;
+use app\models\Slogan;
 use yii\web\Controller;
 use yii\data\Pagination;
 use app\models\LoginForm;
@@ -19,6 +20,12 @@ class MainController extends Controller
 
     $queryCategory=Category::find();
     $categorys=$queryCategory->all();
+    
+    $querySlogan=Slogan::find();
+    $slogans=$querySlogan->all();
+
+    $rand=array_rand($slogans);
+    $randomSlogan=$slogans[$rand]->test;
 
     $countInCategory=array();
     foreach ($categorys as $item){
@@ -31,6 +38,7 @@ class MainController extends Controller
       'lasts'=>$lasts,
       'categorys'=>$categorys,
       'countInCategory'=>$countInCategory,
+      'slogan'=>$randomSlogan,
     ]);
   }
 

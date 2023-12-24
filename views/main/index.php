@@ -13,7 +13,7 @@ $this->title = 'Главная - '. Yii::$app->name;
 <div class="col-12">
   <div class="jumbotron text-center bg-transparent">
       <h1 class="display-4">Тут собрана моя Колекция!</h1>
-      <p class="lead">Каждому человеку нужно какое-нибудь хобби — якобы с целью «выйти из стресса», — но ты-то прекрасно понимаешь, что на самом деле люди попросту пытаются выжить и не сойти с ума.</p>
+      <p class="lead"><?= $slogan; ?></p>
   </div>
 </div>
 <div class="col-lg-3 col-12">
