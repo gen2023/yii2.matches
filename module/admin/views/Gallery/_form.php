@@ -13,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'category_id')->dropDownList($categories, ['prompt' => 'Select...']); ?>
+
+    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'views')->textInput() ?>
 

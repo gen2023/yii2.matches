@@ -78,6 +78,8 @@ class GalleryController extends Controller
         } else {
             $model->loadDefaultValues();
         }
+        $model->views=0;
+        $model->likes=0;
 
         $categories = ArrayHelper::map(Category::find()->all(), 'id', 'name');
 
