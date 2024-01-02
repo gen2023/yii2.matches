@@ -449,3 +449,14 @@ button.menu-title{
         margin-left: 10px;
     }
 }
+@media screen and (max-width: 768px) {
+    header .navTop .navbar-collapse{
+        position: absolute;
+        background: #343a40;
+        top: 56px;
+        right: 0;
+    }
+    .menu-title{background: none;text-align: left;}
+    .menu-title::before,.menu-title::after{content: none;}
+    .hList{display: flex;flex-direction: column;margin: 0;padding: 10px;}
+}
