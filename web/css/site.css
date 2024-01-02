@@ -218,8 +218,50 @@ a.desc:after {
     border-radius: 10px;
     padding: 5px;
     width: 100%;
+    color: #fff;
 }
-
+.column_left .categoryList li:nth-child(1n) a{
+    background: #C0C0C0;
+}
+.column_left .categoryList li:nth-child(2n) a{
+    background: #808080;
+}
+.column_left .categoryList li:nth-child(3) a{
+    background: #800000;
+}
+.column_left .categoryList li:nth-child(4) a{
+    background: #FF0000;
+}
+.column_left .categoryList li:nth-child(5) a{
+    background: #800080;
+}
+.column_left .categoryList li:nth-child(6) a{
+    background: #FF00FF;
+}
+.column_left .categoryList li:nth-child(7) a{
+    background: #008000;
+}
+.column_left .categoryList li:nth-child(8) a{
+    background: #00FF00;
+}
+.column_left .categoryList li:nth-child(9) a{
+    background: #808000;
+}
+.column_left .categoryList li:nth-child(10) a{
+    background: #FFFF00;
+}
+.column_left .categoryList li:nth-child(11) a{
+    background: #000080;
+}
+.column_left .categoryList li:nth-child(12) a{
+    background: #0000FF;
+}
+.column_left .categoryList li:nth-child(13) a{
+    background: #008080;
+}
+.column_left .categoryList li:nth-child(14) a{
+    background: #00FFFF;
+}
 .infoCategoryAdmin table,
 .infoCategoryAdmin td {
     border: 1px solid black;
