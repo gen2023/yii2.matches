@@ -35,31 +35,37 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
         'innerContainerOptions'=>['class'=>'navTop']
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/main/index']],
-            // ['label' => 'About', 'url' => ['/main/about']],
-            // ['label' => 'Contact', 'url' => ['/main/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/main/login']]
-            ) : (
-                '<li class="nav-item"><a class="nav-link" href="/admin/default/index">Admin</a></li>'
-                . '<li>'
-                . Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-                // . ['label' => 'About', 'url' => ['/admin/gallery/index']]
-                ),
-        ],
-    ]);
-    NavBar::end();
-    ?>
+    ]); ?>
+    <ul class="hList">
+        <li>
+            <a href="/main/index" class="menu">
+            <span class="menu-title">Home</span>
+            </a>
+        </li>
+        <?php if(Yii::$app->user->isGuest) { ?>
+            <li>
+                <a href="/main/login" class="menu">
+                <span class="menu-title menu-title_2nd">Login</span>
+                </a>
+            </li>
+        <?php } else{ ?>
+            <li>
+                <a href="/admin/default/index" class="menu">
+                <span class="menu-title menu-title_2nd">Admin</span>
+                </a>
+            </li>
+            <li>
+                <?php echo Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'menu menu-title menu-title_3rd logout']
+                    )
+                    . Html::endForm() ?>
+            </li>
+        <?php } ?>
+    </ul>
+    <?php NavBar::end(); ?>
+
 </header>
 
 <main role="main" class="flex-shrink-0">

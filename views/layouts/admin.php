@@ -34,26 +34,39 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
         'innerContainerOptions'=>['class'=>'navTop']
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/main/index']],
-            ['label' => 'Category', 'url' => ['/admin/category/index']],
-            ['label' => 'Gallery', 'url' => ['/admin/gallery/index']],
-            ['label' => 'Slogan', 'url' => ['/admin/slogan/index']],
-                '<li>'
-                . Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
+    ]); ?>
+
+    <ul class="hList">
+        <li>
+            <a href="/main/index" class="menu">
+            <span class="menu-title">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/category/index" class="menu">
+            <span class="menu-title menu-title_2nd">Category</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/gallery/index" class="menu">
+            <span class="menu-title menu-title_5">Gallery</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/slogan/index" class="menu">
+            <span class="menu-title menu-title_4th">Slogan</span>
+            </a>
+        </li>        
+        <li>
+            <?php echo Html::beginForm(['/main/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
+                    ['class' => 'menu menu-title menu-title_3rd logout']
                 )
-                . Html::endForm()
-                . '</li>'
-        ],
-    ]);
-    NavBar::end();
-    ?>
+                . Html::endForm() ?>
+        </li>
+    </ul>   
+    <?php NavBar::end(); ?> 
 </header>
 
 <main role="main" class="flex-shrink-0">
